@@ -1,0 +1,51 @@
+<form action="{{ route('career.store') }}" method="POST">
+    @csrf
+    <div class="modal-header">
+        <h5 class="modal-title h6">{{translate('Add New Career Info')}}</h5>
+        <button type="button" class="close" data-dismiss="modal">
+        </button>
+    </div>
+    <div class="modal-body">
+        <input type="hidden" name="user_id" value="{{ $member_id }}">
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">{{translate('Designation')}}</label>
+            <div class="col-md-9">
+                <input type="text" name="designation" class="form-control" placeholder="{{translate('designation')}}" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- <label class="col-md-3 col-form-label">{{translate('Company')}}</label> -->
+                    <select class="form-control aiz-selectpicker" name="company" required>
+                        <option value="Government">Government</option>
+                        <option value="Private">Private</option>
+                        <option value="Businessman">Businessman</option>
+                        <option value="MNC">MNC</option>
+                        <option value="Not working">Not Working</option>
+                    </select>
+               <!--  <input type="text" name="company"   placeholder="{{ translate('company') }}" class="form-control" required> -->
+            </div>
+            <div class="form-group row">
+            <label class="col-md-3 col-form-label">{{translate('Salary')}}</label>
+            <div class="col-md-9">
+                <input type="text" name="package" class="form-control" placeholder="{{translate('salary')}}">
+            </div>
+        </div>
+        </div>
+        <div class="form-group row" style="display: none;">
+            <label class="col-md-3 col-form-label">{{translate('Start')}}</label>
+            <div class="col-md-9">
+                <input type="number" name="career_start" value="1" class="form-control" placeholder="{{translate('Start')}}" required>
+            </div>
+        </div>
+        <div class="form-group row" style="display: none;">
+            <label class="col-md-3 col-form-label">{{translate('End')}}</label>
+            <div class="col-md-9">
+                <input type="number" name="career_end" value="1" placeholder="{{ translate('End') }}" class="form-control" required>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">{{translate('Close')}}</button>
+        <button type="submit" class="btn btn-primary">{{translate('Add New Career Info')}}</button>
+    </div>
+</form>
